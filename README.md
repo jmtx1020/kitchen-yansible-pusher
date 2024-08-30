@@ -12,7 +12,7 @@ Edit your gem file to look like this:
 
 ```ruby
 # Install from Github
-gem 'kitchen-ansible',
+gem 'kitchen-yansible-pusher',
     git: 'https://github.com/jmtx1020/kitchen-yansible-pusher.git',
     branch: 'main'
 ```
