@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'kitchen'
 require 'kitchen/provisioner/base'
 require_relative '../yansible/pusher/version'
 require 'yaml'
