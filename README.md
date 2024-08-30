@@ -1,34 +1,47 @@
-# Kitchen::Yansible::Pusher
+# kitchen-yansible-pusher
 
-TODO: Delete this and the text below, and describe your gem
+The goal of this project was to make a modern and minimalistic test-kitchen provisioner for Ansible, that works in push mode instead of pull mode.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/kitchen/yansible/pusher`. To experiment with that code, run `bin/console` for an interactive prompt.
+From using Ansible for a while, I believe Gems like [kitchen-ansible](https://github.com/neillturner/kitchen-ansible) and [kitchen-ansiblepush](https://github.com/ahelal/kitchen-ansiblepush) both do too much, as well as seem to have been abandoned by their respective creators.
+
+By doing less, and expecting the user to install their own Ansible, provide their configuration in the form of environment variables, an `ansible.cfg` file or tags and running only in `push` mode(normal mode) we free ourselves from having to support all kinds of installation methods across platforms and in a way future proof ourselves.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Edit your gem file to look like this:
 
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+```ruby
+# Install from Github
+gem 'kitchen-ansible',
+    git: 'https://github.com/jmtx1020/kitchen-yansible-pusher.git',
+    branch: 'main'
+```
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Keeping simplicity in mind, this kitchen-provisioner has minimal options to get going.
+```yaml
+provisioner:
+    playbook: "/path/to/playbook.yaml"
+    config: "/path/to/ansible.cfg"
+    extra_vars:
+      MARIO: "MUSHROOM_KINGDOM"
+      LINK: "HYRULE_KINGDOM"
+    tags:
+      - tag1
+      - tag2
+    skip_tags:
+      - tag3
+      - tag4
+    verbosity: 1
+    vault_password_file: "/path/to/vault.password"
+    username: username
+    private_key: "/path/to/private.key"
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/kitchen-yansible-pusher.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jmtx1020/kitchen-yansible-pusher.
 
 ## License
 
