@@ -26,5 +26,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
+          token: ${{ secrets.KITCHEN_YANSIBLE_PROVISIONER }}
           files: |
             kitchen-yansible-pusher-*.gem
