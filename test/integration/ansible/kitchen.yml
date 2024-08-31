@@ -1,0 +1,25 @@
+---
+driver:
+  name: docker
+  customize:
+    memory: 1024
+
+platforms:
+  - name: ubuntu-22.04
+
+provisioner:
+  name: yansible_pusher
+  playbook: test/integration/ansible/playbooks/playbook.yaml
+  config: test/integration/ansible/playbooks/ansible.cfg
+  verbosity: 1
+  vault_password_file: ~/password.secret
+  extra_vars:
+    MARIO: "MUSHROOM_KINGDOM"
+    LINK: "HYRULE"
+  tags:
+    - tag1
+  skip_tags:
+    - tag2
+
+suites:
+  - name: default

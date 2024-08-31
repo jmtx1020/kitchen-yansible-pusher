@@ -1,0 +1,9 @@
+---
+username: kitchen
+ssh_key: "/Users/joset./Workspace/JTProjects/kitchen-yansible-pusher/test/integration/ansible/.kitchen/docker_id_rsa"
+last_error:
+image_id: sha256:49210fe2d2d30a98f629b404c617e71c357fe90a4b7cf47214a4aa78c88c3b90
+container_id: fd6496eb0ec75b7ec11b47fec020b19ceaaf378d7047798fd98e364e4c6d40bd
+hostname: localhost
+port: 59475
+last_action: converge

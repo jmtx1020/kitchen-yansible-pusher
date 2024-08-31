@@ -1,0 +1,14 @@
+I, [2024-08-30T18:49:19.676999 #61569]  INFO -- default-ubuntu-2204: -----> Creating <default-ubuntu-2204>...
+I, [2024-08-30T18:49:50.429836 #61569]  INFO -- default-ubuntu-2204: [SSH] Established
+I, [2024-08-30T18:49:50.432158 #61569]  INFO -- default-ubuntu-2204: Finished creating <default-ubuntu-2204> (0m30.75s).
+I, [2024-08-30T18:49:50.432295 #61569]  INFO -- default-ubuntu-2204: -----> Converging <default-ubuntu-2204>...
+I, [2024-08-30T18:49:50.432884 #61569]  INFO -- default-ubuntu-2204: Sandbox created at: /var/folders/dp/l1prqsg97kz5ngb518ht4t440000gn/T/kitchen-yansible-pusher20240830-61569-60wdik
+I, [2024-08-30T18:49:50.433340 #61569]  INFO -- default-ubuntu-2204: Transferring files to <default-ubuntu-2204>
+I, [2024-08-30T18:49:50.433758 #61569]  INFO -- default-ubuntu-2204: Running Ansible Playbook: playbooks/playbook.yaml
+I, [2024-08-30T18:49:50.433980 #61569]  INFO -- default-ubuntu-2204: Sandbox created at: /var/folders/dp/l1prqsg97kz5ngb518ht4t440000gn/T/kitchen-yansible-pusher20240830-61569-v7al9o
+I, [2024-08-30T18:49:50.434533 #61569]  INFO -- default-ubuntu-2204: Running Ansible Command: LINK="HYRULE" MARIO="MUSHROOM_KINGDOM" ANSIBLE_CONFIG=playbooks/ansible.cfg ansible-playbook --private-key /Users/joset./Workspace/JTProjects/kitchen-yansible-pusher/test/integration/ansible/.kitchen/docker_id_rsa --vault-password-file ~/password.secret --tags "tag1" --skip-tags "tag2" -v --inventory /var/folders/dp/l1prqsg97kz5ngb518ht4t440000gn/T/kitchen-yansible-pusher20240830-61569-v7al9o/inventory.yml playbooks/playbook.yaml
+I, [2024-08-30T18:50:06.449327 #61569]  INFO -- default-ubuntu-2204: Ansible Playbook Complete!
+I, [2024-08-30T18:50:06.450165 #61569]  INFO -- default-ubuntu-2204: Sandbox cleaned up: /var/folders/dp/l1prqsg97kz5ngb518ht4t440000gn/T/kitchen-yansible-pusher20240830-61569-v7al9o
+I, [2024-08-30T18:50:06.538305 #61569]  INFO -- default-ubuntu-2204: Downloading files from <default-ubuntu-2204>
+I, [2024-08-30T18:50:06.538448 #61569]  INFO -- default-ubuntu-2204: No sandbox to clean up or sandbox already removed
+I, [2024-08-30T18:50:06.539038 #61569]  INFO -- default-ubuntu-2204: Finished converging <default-ubuntu-2204> (0m16.11s).

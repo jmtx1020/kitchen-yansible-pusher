@@ -1,0 +1,25 @@
+name: Continous Integration
+
+on:
+  push:
+    branches:
+      - 'feature/*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Run Integration Test
+        run: |
+          gem install bundler
+          bundle install
+          bundle exec rspec
