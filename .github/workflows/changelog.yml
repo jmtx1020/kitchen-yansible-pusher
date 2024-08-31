@@ -7,11 +7,18 @@ jobs:
   changelog:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: "✏️ Generate release changelog"
         uses: janheinrichmerker/action-github-changelog-generator@v2.4
         with:
           token: ${{ secrets.KITCHEN_YANSIBLE_PROVISIONER }}
 
-      - name: Output Change Log
+      - name: Commit and push changes
         run: |
-          cat CHANGELOG.md
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add CHANGELOG.md
+          git commit -m "Update changelog"
+          git push
