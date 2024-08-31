@@ -23,6 +23,7 @@ jobs:
 
       - name: Run Integration Test
         run: |
+          gem install bundler
           bundle install
           bundle exec rspec
 
