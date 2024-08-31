@@ -42,6 +42,9 @@ provisioner:
   env_vars:
     MARIO: "MUSHROOM_KINGDOM"
     LINK: "HYRULE_KINGDOM"
+  extra_flags:
+    - --flush-cache
+    - --timeout 60
   tags:
     - tag1
     - tag2
