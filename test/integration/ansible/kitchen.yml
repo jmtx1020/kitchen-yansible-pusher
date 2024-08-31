@@ -1,6 +1,6 @@
 ---
 driver:
-  name: <%= "#{ENV['KITCHEN_DRIVER']} || "docker" %>
+  name: docker
   customize:
     memory: 1024
 

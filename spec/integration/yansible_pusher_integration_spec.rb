@@ -23,47 +23,64 @@ describe 'YansiblePusher Integration' do
   end
 
   after(:each) do
+    destroy_instance
+  end
+
+  def destroy_instance
     instance.destroy
+  rescue => e
+    puts "Error during instance destruction: #{e.message}"
+  ensure
+    # Force removal of the instance's data directory
+    FileUtils.rm_rf(instance.instance_variable_get(:@data_path)) if instance.instance_variable_get(:@data_path)
   end
 
   it 'successfully runs kitchen test' do
-    expect { instance.test }.not_to raise_error
+    begin
+      expect { instance.test }.not_to raise_error
+    ensure
+      destroy_instance
+    end
   end
 
   it 'verifies ansible playbook execution' do
-    # Ensure the log directory exists
-    FileUtils.mkdir_p(File.dirname(log_file))
+    begin
+      # Ensure the log directory exists
+      FileUtils.mkdir_p(File.dirname(log_file))
 
-    # Clear the log file before running converge
-    File.write(log_file, '')
+      # Clear the log file before running converge
+      File.write(log_file, '')
 
-    # Run the converge action
-    instance.converge
+      # Run the converge action
+      instance.converge
 
-    # Read the log file
-    log_content = File.read(log_file)
+      # Read the log file
+      log_content = File.read(log_file)
 
-    # Perform checks on the log content
-    expect(log_content).to include('Running Ansible Playbook')
-    expect(log_content).to include('Ansible Playbook Complete!')
+      # Perform checks on the log content
+      expect(log_content).to include('Running Ansible Playbook')
+      expect(log_content).to include('Ansible Playbook Complete!')
 
-    # Check for the correct playbook path
-    expect(log_content).to include('playbooks/playbook.yaml')
+      # Check for the correct playbook path
+      expect(log_content).to include('playbooks/playbook.yaml')
 
-    # Check for extra vars in the command
-    expect(log_content).to include('MARIO="MUSHROOM_KINGDOM"')
-    expect(log_content).to include('LINK="HYRULE"')
+      # Check for extra vars in the command
+      expect(log_content).to include('MARIO="MUSHROOM_KINGDOM"')
+      expect(log_content).to include('LINK="HYRULE"')
 
-    # Check for tags
-    expect(log_content).to include('--tags "tag1"')
+      # Check for tags
+      expect(log_content).to include('--tags "tag1"')
 
-    # Check for skip tags
-    expect(log_content).to include('--skip-tags "tag2"')
+      # Check for skip tags
+      expect(log_content).to include('--skip-tags "tag2"')
 
-    # Check verbosity
-    expect(log_content).to include('-v') # For verbosity 1
+      # Check verbosity
+      expect(log_content).to include('-v') # For verbosity 1
 
-    # Check that the playbook was found and executed
-    expect(log_content).not_to include('ERROR! the playbook: ./playbooks/playbook.yaml could not be found')
+      # Check that the playbook was found and executed
+      expect(log_content).not_to include('ERROR! the playbook: ./playbooks/playbook.yaml could not be found')
+    ensure
+      destroy_instance
+    end
   end
 end
