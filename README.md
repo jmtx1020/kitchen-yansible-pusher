@@ -29,6 +29,7 @@ gem 'kitchen-yansible-pusher', '~> 0.1.0'
 Keeping simplicity in mind, this kitchen-provisioner has minimal options to get going.
 ```yaml
 provisioner:
+    name: yansible_pusher
     playbook: "/path/to/playbook.yaml"
     config: "/path/to/ansible.cfg"
     extra_vars:
