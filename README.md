@@ -36,22 +36,22 @@ platforms:
   - name: ubuntu-22.04
 
 provisioner:
-    name: yansible_pusher
-    playbook: "/path/to/playbook.yaml"
-    config: "/path/to/ansible.cfg"
-    extra_vars:
-      MARIO: "MUSHROOM_KINGDOM"
-      LINK: "HYRULE_KINGDOM"
-    tags:
-      - tag1
-      - tag2
-    skip_tags:
-      - tag3
-      - tag4
-    verbosity: 1
-    vault_password_file: "/path/to/vault.password"
-    username: username
-    private_key: "/path/to/private.key"
+  name: yansible_pusher
+  playbook: "/path/to/playbook.yaml"
+  config: "/path/to/ansible.cfg"
+  extra_vars:
+    MARIO: "MUSHROOM_KINGDOM"
+    LINK: "HYRULE_KINGDOM"
+  tags:
+    - tag1
+    - tag2
+  skip_tags:
+    - tag3
+    - tag4
+  verbosity: 1
+  vault_password_file: "/path/to/vault.password"
+  username: username
+  private_key: "/path/to/private.key"
 
 suites:
   - name: default
