@@ -9,9 +9,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: setup-docker
-        uses: docker-practice/actions-setup-docker@v1
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
