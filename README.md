@@ -1,5 +1,7 @@
 # kitchen-yansible-pusher
 
+![main](https://github.com/jmtx1020/kitchen-yansible-pusher/actions/workflows/main.yml/badge.svg)
+
 The goal of this project was to make a modern and minimalistic test-kitchen provisioner for Ansible, that works in push mode instead of pull mode.
 
 From using Ansible for a while, I believe Gems like [kitchen-ansible](https://github.com/neillturner/kitchen-ansible) and [kitchen-ansiblepush](https://github.com/ahelal/kitchen-ansiblepush) both do too much, as well as seem to have been abandoned by their respective creators.
