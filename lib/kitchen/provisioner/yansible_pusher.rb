@@ -28,6 +28,7 @@ module Kitchen
       default_config :playbook, nil
       default_config :config, nil
       default_config :env_vars, {}
+      default_config :extra_flags, []
       default_config :tags, []
       default_config :skip_tags, []
       default_config :verbosity, 1
@@ -115,6 +116,7 @@ module Kitchen
           ansible_env_vars
           ansible_use_private_key
           ansible_use_vault_password_file
+          ansible_extra_flags
           ansible_tags
           ansible_skip_tags
           ansible_verbosity
@@ -131,13 +133,18 @@ module Kitchen
         cmd
       end
 
+      def ansible_extra_flags(cmd)
+        cmd << "#{config[:extra_flags].join(" ")}" unless config[:extra_flags].empty?
+        cmd
+      end
+
       def ansible_tags(cmd)
-        cmd << "--tags \"#{config[:tags].join}\"" unless config[:tags].empty?
+        cmd << "--tags \"#{config[:tags].join(',')}\"" unless config[:tags].empty?
         cmd
       end
 
       def ansible_skip_tags(cmd)
-        cmd << "--skip-tags \"#{config[:skip_tags].join}\"" unless config[:skip_tags].empty?
+        cmd << "--skip-tags \"#{config[:skip_tags].join(',')}\"" unless config[:skip_tags].empty?
         cmd
       end
 

@@ -8,7 +8,14 @@ The goal of this project was to make a modern and minimalistic test-kitchen prov
 
 From using Ansible for a while, I believe Gems like [kitchen-ansible](https://github.com/neillturner/kitchen-ansible) and [kitchen-ansiblepush](https://github.com/ahelal/kitchen-ansiblepush) both do too much, as well as seem to have been abandoned by their respective creators.
 
-By doing less, and expecting the user to install their own Ansible, provide their configuration in the form of environment variables, an `ansible.cfg` file or tags and running only in `push` mode(normal mode) we free ourselves from having to support all kinds of installation methods across platforms and in a way future proof ourselves.
+By doing less, and expecting the user to install their own Ansible, provide their configuration in the form of environment variables, an `ansible.cfg` file, tags, CLI flags and running only in `push` mode(normal mode) we free ourselves from having to support all kinds of installation methods across platforms and in a way future proof ourselves.
+
+With that in mind, if there's something you think is missing please feel free to submit an issue or pull request and I will do my best to accomodate but keep in mind the goals of this project.
+
+Additionally, these links to the documentation for `ansible-playbook` and `ansible.cfg` settings are here for convenience.
+
+* [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
+* [ansible-config](https://docs.ansible.com/ansible/latest/reference_appendices/config.html)
 
 ## Installation
 
@@ -21,7 +28,7 @@ gem 'kitchen-yansible-pusher',
     branch: 'main'
 
 # Install via RubyGems
-gem 'kitchen-yansible-pusher', '~> 0.1.0'
+gem 'kitchen-yansible-pusher', '~> 0.2.0'
 ```
 
 ## Usage
@@ -42,6 +49,9 @@ provisioner:
   env_vars:
     MARIO: "MUSHROOM_KINGDOM"
     LINK: "HYRULE_KINGDOM"
+  extra_flags:
+    - --flush-cache
+    - --timeout 60
   tags:
     - tag1
     - tag2

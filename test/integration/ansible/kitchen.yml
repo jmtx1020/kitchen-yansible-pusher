@@ -13,13 +13,17 @@ provisioner:
   config: test/integration/ansible/playbooks/ansible.cfg
   verbosity: 1
   vault_password_file: test/integration/ansible/password.secret
+  extra_flags:
+    - --flush-cache
+    - --timeout 60
   env_vars:
     MARIO: "MUSHROOM_KINGDOM"
     LINK: "HYRULE"
   tags:
     - tag1
-  skip_tags:
     - tag2
+  skip_tags:
+    - skip_tag1
 
 suites:
   - name: default
