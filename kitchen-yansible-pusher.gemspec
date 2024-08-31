@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
-  spec.metadata["allowed_push_host"] = "https://github.com/jmtx1020/kitchen-yansible-pusher"
+  spec.metadata["allowed_push_host"] = "ttps://rubygems.org, https://github.com/jmtx1020/kitchen-yansible-pusher"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/jmtx1020/kitchen-yansible-pusher/tree/main"
