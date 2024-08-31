@@ -25,6 +25,10 @@ GEM
       builder (>= 2.1.2)
       rexml (~> 3.0)
     httpclient (2.8.3)
+    kitchen-docker (3.0.0)
+      test-kitchen (>= 1.0.0)
+    kitchen-vagrant (2.0.1)
+      test-kitchen (>= 1.4, < 4)
     license-acceptance (2.1.13)
       pastel (~> 0.7)
       tomlrb (>= 1.2, < 3.0)
@@ -137,6 +141,8 @@ PLATFORMS
   x86_64-darwin-23
 
 DEPENDENCIES
+  kitchen-docker (~> 3.0)
+  kitchen-vagrant (~> 2.0, >= 2.0.1)
   kitchen-yansible-pusher!
   rake (~> 13.0)
   rbs (~> 3.5, >= 3.5.3)
