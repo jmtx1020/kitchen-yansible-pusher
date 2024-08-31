@@ -2,13 +2,18 @@
 
 ## [Unreleased](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/HEAD)
 
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test5...HEAD)
+[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test6...HEAD)
 
 **Merged pull requests:**
 
+- added CHANGELOG update action [\#11](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/11) ([jmtx1020](https://github.com/jmtx1020))
 - updated gem version [\#10](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/10) ([jmtx1020](https://github.com/jmtx1020))
 - Feature: Added support for extra flags [\#9](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/9) ([jmtx1020](https://github.com/jmtx1020))
 - rename `extra_vars` to `env_vars` since it's for setting environment variables [\#8](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/8) ([jmtx1020](https://github.com/jmtx1020))
+
+## [v0.1.4_test6](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test6) (2024-08-31)
+
+[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test5...v0.1.4_test6)
 
 ## [v0.1.4_test5](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test5) (2024-08-31)
 
