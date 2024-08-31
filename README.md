@@ -28,6 +28,13 @@ gem 'kitchen-yansible-pusher', '~> 0.1.0'
 
 Keeping simplicity in mind, this kitchen-provisioner has minimal options to get going.
 ```yaml
+---
+driver:
+  name: docker
+
+platforms:
+  - name: ubuntu-22.04
+
 provisioner:
     name: yansible_pusher
     playbook: "/path/to/playbook.yaml"
@@ -45,6 +52,10 @@ provisioner:
     vault_password_file: "/path/to/vault.password"
     username: username
     private_key: "/path/to/private.key"
+
+suites:
+  - name: default
+
 ```
 
 ## Contributing
