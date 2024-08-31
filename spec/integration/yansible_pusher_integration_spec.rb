@@ -69,10 +69,10 @@ describe 'YansiblePusher Integration' do
       expect(log_content).to include('LINK="HYRULE"')
 
       # Check for tags
-      expect(log_content).to include('--tags "tag1"')
+      expect(log_content).to include('--tags "tag1,tag2"')
 
       # Check for skip tags
-      expect(log_content).to include('--skip-tags "tag2"')
+      expect(log_content).to include('--skip-tags "skip_tag1"')
 
       # Check verbosity
       expect(log_content).to include('-v') # For verbosity 1

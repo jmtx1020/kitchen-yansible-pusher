@@ -8,10 +8,17 @@
 
 - name: A Tag to Run
   ansible.builtin.apt:
-    name: dnsutils
+    name: vim
     state: present
   tags:
     - tag1
+
+- name: Another Tag to Run
+  ansible.builtin.apt:
+    name: dnsutils
+    state: present
+  tags:
+    - tag2
 
 
 - name: A Tag to Skip
@@ -19,4 +26,4 @@
     name: curl
     state: present
   tags:
-    - tag2
+    - skip_tag1

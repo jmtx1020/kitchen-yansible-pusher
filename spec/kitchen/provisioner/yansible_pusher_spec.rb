@@ -10,6 +10,7 @@ describe Kitchen::Provisioner::YansiblePusher do
     {
       playbook: 'playbook.yml',
       env_vars: { 'MARIO' => 'MUSHROOM_KINGDOM' },
+      extra_flags: ['--flush-cache', '--timeout 60'],
       tags: ['tag1', 'tag2'],
       skip_tags: ['skip1'],
       verbosity: 2,
@@ -44,7 +45,7 @@ describe Kitchen::Provisioner::YansiblePusher do
     allow(transport).to receive(:connection).and_return(double('connection'))
     allow(provisioner).to receive(:run_ansible).and_return(nil)
     allow(transport).to receive(:instance_variable_get).with(:@connection_options).and_return(state)
-    
+
     # Create a temporary directory for the sandbox
     @sandbox_path = Dir.mktmpdir
     allow(provisioner).to receive(:sandbox_path).and_return(@sandbox_path)
@@ -70,8 +71,10 @@ describe Kitchen::Provisioner::YansiblePusher do
       command = provisioner.send(:build_ansible_command)
       expect(command).to include('ansible-playbook')
       expect(command).to include("MARIO=\"MUSHROOM_KINGDOM\"")
-      expect(command).to include('--tags "tag1tag2"')
+      expect(command).to include('--tags "tag1,tag2"')
       expect(command).to include('--skip-tags "skip1"')
+      expect(command).to include('--flush-cache')
+      expect(command).to include('--timeout 60')
       expect(command).to include('-vv')
       expect(command).to include('--vault-password-file /path/to/vault/password')
       expect(command).to include('--private-key /path/to/private/key')
