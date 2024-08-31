@@ -23,7 +23,3 @@ jobs:
           gem install bundler
           bundle install
           bundle exec rspec
-
-      - name: Clean up Kitchen instances
-        if: always()
-        run: bundle exec kitchen destroy all
