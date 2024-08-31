@@ -12,13 +12,16 @@ By doing less, and expecting the user to install their own Ansible, provide thei
 
 ## Installation
 
-Edit your gem file to look like this:
+Edit your Gemfile to look like this, or install it like this `gem install kitchen-yansible-pusher`
 
 ```ruby
 # Install from Github
 gem 'kitchen-yansible-pusher',
     git: 'https://github.com/jmtx1020/kitchen-yansible-pusher.git',
     branch: 'main'
+
+# Install via RubyGems
+gem 'kitchen-yansible-pusher', '~> 0.1.0'
 ```
 
 ## Usage
