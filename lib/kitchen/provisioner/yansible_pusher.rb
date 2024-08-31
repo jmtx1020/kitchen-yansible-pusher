@@ -148,10 +148,12 @@ module Kitchen
           state = instance.transport.instance_variable_get(:@connection_options)
           cmd << "--private-key #{state[:keys][0]}"
         end
+        cmd
       end
 
       def ansible_use_vault_password_file(cmd)
-        cmd << "--vault-password-file #{config[:vault_password_file]}" if config[:vault_password_file]
+        cmd << "--vault-password-file #{config[:vault_password_file]}" unless config[:vault_password_file].nil?
+        cmd
       end
 
       def ansible_verbosity(cmd)
