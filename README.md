@@ -28,7 +28,7 @@ gem 'kitchen-yansible-pusher',
     branch: 'main'
 
 # Install via RubyGems
-gem 'kitchen-yansible-pusher', '~> 0.1.0'
+gem 'kitchen-yansible-pusher', '~> 0.2.0'
 ```
 
 ## Usage
