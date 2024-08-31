@@ -1,3 +1,5 @@
+name: Build and Release Tagged Versions
+
 on:
   push:
     tags:
@@ -29,3 +31,11 @@ jobs:
           token: ${{ secrets.KITCHEN_YANSIBLE_PROVISIONER }}
           files: |
             kitchen-yansible-pusher-*.gem
+
+      - name: Release Gem
+        if: contains(github.ref, 'refs/tags/v')
+        uses: cadwallion/publish-rubygems-action@master
+        env:
+          GITHUB_TOKEN: ${{secrets.KITCHEN_YANSIBLE_PROVISIONER}}
+          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
+          RELEASE_COMMAND: rake release

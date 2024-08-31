@@ -1,6 +1,7 @@
 # kitchen-yansible-pusher
 
 ![main](https://github.com/jmtx1020/kitchen-yansible-pusher/actions/workflows/main.yml/badge.svg)
+![main](https://github.com/jmtx1020/kitchen-yansible-pusher/actions/workflows/release.yml/badge.svg)
 ![main](https://github.com/jmtx1020/kitchen-yansible-pusher/actions/workflows/integration.yml/badge.svg)
 
 The goal of this project was to make a modern and minimalistic test-kitchen provisioner for Ansible, that works in push mode instead of pull mode.
