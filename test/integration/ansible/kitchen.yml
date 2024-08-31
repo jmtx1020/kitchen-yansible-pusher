@@ -12,8 +12,8 @@ provisioner:
   playbook: test/integration/ansible/playbooks/playbook.yaml
   config: test/integration/ansible/playbooks/ansible.cfg
   verbosity: 1
-  vault_password_file: ~/password.secret
-  extra_vars:
+  vault_password_file: test/integration/ansible/password.secret
+  env_vars:
     MARIO: "MUSHROOM_KINGDOM"
     LINK: "HYRULE"
   tags:
