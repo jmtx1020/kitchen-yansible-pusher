@@ -9,7 +9,7 @@ describe Kitchen::Provisioner::YansiblePusher do
   let(:config) do
     {
       playbook: 'playbook.yml',
-      extra_vars: { 'MARIO' => 'MUSHROOM_KINGDOM' },
+      env_vars: { 'MARIO' => 'MUSHROOM_KINGDOM' },
       tags: ['tag1', 'tag2'],
       skip_tags: ['skip1'],
       verbosity: 2,

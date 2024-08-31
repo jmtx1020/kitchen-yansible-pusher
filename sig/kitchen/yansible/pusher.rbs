@@ -23,7 +23,7 @@ module Kitchen
       def build_ansible_command: () -> String
       def ansible_options: () -> Array[Symbol]
       def ansible_config: (Array[String]) -> Array[String]
-      def ansible_extra_vars: (Array[String]) -> Array[String]
+      def ansible_env_vars: (Array[String]) -> Array[String]
       def ansible_tags: (Array[String]) -> Array[String]
       def ansible_skip_tags: (Array[String]) -> Array[String]
       def ansible_use_private_key: (Array[String]) -> Array[String]

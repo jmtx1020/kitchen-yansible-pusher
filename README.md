@@ -39,7 +39,7 @@ provisioner:
   name: yansible_pusher
   playbook: "/path/to/playbook.yaml"
   config: "/path/to/ansible.cfg"
-  extra_vars:
+  env_vars:
     MARIO: "MUSHROOM_KINGDOM"
     LINK: "HYRULE_KINGDOM"
   tags:

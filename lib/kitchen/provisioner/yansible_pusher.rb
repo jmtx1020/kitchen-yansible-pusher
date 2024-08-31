@@ -13,7 +13,7 @@ module Kitchen
     #   provisioner:
     #     name: yansible_pusher
     #     playbook: playbooks/playbook.yml
-    #     extra_vars:
+    #     env_vars:
     #       MARIO: "MUSHROOM_KINGDOM"
     #       LINK: "HYRULE_KINGDOM"
     #
@@ -27,7 +27,7 @@ module Kitchen
 
       default_config :playbook, nil
       default_config :config, nil
-      default_config :extra_vars, {}
+      default_config :env_vars, {}
       default_config :tags, []
       default_config :skip_tags, []
       default_config :verbosity, 1
@@ -112,7 +112,7 @@ module Kitchen
       def ansible_options
         %i[
           ansible_config
-          ansible_extra_vars
+          ansible_env_vars
           ansible_use_private_key
           ansible_use_vault_password_file
           ansible_tags
@@ -126,8 +126,8 @@ module Kitchen
         cmd
       end
 
-      def ansible_extra_vars(cmd)
-        config[:extra_vars]&.each { |k, v| cmd.prepend("#{k}=\"#{v}\"") }
+      def ansible_env_vars(cmd)
+        config[:env_vars]&.each { |k, v| cmd.prepend("#{k}=\"#{v}\"") }
         cmd
       end
 
