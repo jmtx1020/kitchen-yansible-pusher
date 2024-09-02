@@ -35,6 +35,7 @@ module Kitchen
       default_config :vault_password_file, nil
       default_config :username, nil
       default_config :private_key, nil
+      default_config :windows_config, nil
 
       attr_reader :sandbox_path
 
@@ -62,6 +63,7 @@ module Kitchen
         ensure
           cleanup_sandbox
         end
+        ensure_windows_exit_code if windows_instance?
       end
 
       private
@@ -89,11 +91,31 @@ module Kitchen
       end
 
       def build_host_config(state)
+        if windows_instance?
+          build_windows_config(state)
+        else
+          build_linux_config(state)
+        end
+      end
+
+      def build_linux_config(state)
         {
           'ansible_host' => state[:hostname],
           'ansible_port' => state[:port],
           'ansible_user' => config[:username] || state[:username]
         }
+      end
+
+      def build_windows_config(state)
+        uri = URI(state[:endpoint])
+        { 'ansible_host' => uri.host,
+          'ansible_port' => state[:port] || uri.port,
+          'ansible_user' => state[:user],
+          'ansible_password' => state[:password],
+          'ansible_connection' => 'winrm',
+          'ansible_winrm_server_cert_validation' => 'ignore',
+          'ansible_winrm_transport' => 'ssl',
+          'ansible_winrm_scheme' => uri.scheme }
       end
 
       def write_inventory_file(inventory)
@@ -134,7 +156,7 @@ module Kitchen
       end
 
       def ansible_extra_flags(cmd)
-        cmd << "#{config[:extra_flags].join(" ")}" unless config[:extra_flags].empty?
+        cmd << config[:extra_flags].join(' ') unless config[:extra_flags].empty?
         cmd
       end
 
@@ -153,7 +175,7 @@ module Kitchen
           cmd << "--private-key #{config[:private_key]}"
         else
           state = instance.transport.instance_variable_get(:@connection_options)
-          cmd << "--private-key #{state[:keys][0]}"
+          cmd << "--private-key #{state[:keys][0]}" if state.key?(:keys)
         end
         cmd
       end
@@ -165,6 +187,7 @@ module Kitchen
 
       def ansible_verbosity(cmd)
         cmd << "-#{'v' * config[:verbosity]}" if config[:verbosity] >= 1
+        cmd
       end
 
       def create_sandbox
@@ -185,6 +208,25 @@ module Kitchen
       rescue StandardError => e
         error("Failed to clean up sandbox: #{e.message}")
         raise
+      end
+
+      def windows_instance?
+        instance.transport.instance_variable_get(:@connection_options).key?(:endpoint)
+      end
+
+      # Ensures proper exit code handling for Windows instances in Test Kitchen.
+      #
+      # @return [String] A PowerShell command string to be executed on the remote Windows system.
+      #
+      # This method is only called for Windows instances. It returns a PowerShell command that:
+      # 1. Outputs the status of the last command ($?)
+      # 2. Exits with 0 if the last command succeeded, or 1 if it failed
+      #
+      # This approach addresses a specific issue with Test Kitchen's WinRM transport,
+      # where it expects a command string to execute rather than a boolean result.
+      # It ensures that the correct exit code is returned to Test Kitchen.
+      def ensure_windows_exit_code
+        '$?; if($?) { exit 0 } else { exit 1 }'
       end
     end
   end
