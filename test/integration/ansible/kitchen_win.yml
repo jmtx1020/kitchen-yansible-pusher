@@ -1,0 +1,35 @@
+---
+driver:
+  name: vagrant
+  customize:
+    memory: 1024
+platforms:
+  - name: windows-2022
+    driver:
+      box: gusztavvargadr/windows-server-2022-standard
+      gui: true
+      communicator: winrm
+      network:
+        - ["forwarded_port", {guest: 5985, host: 55985}]
+    transport:
+      name: winrm
+
+provisioner:
+  name: yansible_pusher
+  playbook: test/integration/ansible/playbooks/playbook_win.yaml
+  config: test/integration/ansible/playbooks/ansible.cfg
+  verbosity: 1
+  vault_password_file: test/integration/ansible/password.secret
+  extra_flags:
+    - --flush-cache
+    - --timeout 60
+  env_vars:
+    MARIO: "MUSHROOM_KINGDOM"
+    LINK: "HYRULE"
+  tags:
+    - win_tag1
+  skip_tags:
+    - win_skip_tag1
+
+suites:
+  - name: default

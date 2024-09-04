@@ -1,8 +1,6 @@
 ---
 driver:
   name: docker
-  customize:
-    memory: 1024
 
 platforms:
   - name: ubuntu-22.04

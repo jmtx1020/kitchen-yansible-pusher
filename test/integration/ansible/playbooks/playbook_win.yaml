@@ -1,0 +1,12 @@
+---
+- name: Playbook1 to run the ansible_test locally
+  hosts: all
+  gather_facts: true
+  roles:
+    - role: ../roles/ansible_test
+
+- name: Playbook2 to run the ansible_test locally
+  hosts: all
+  gather_facts: true
+  roles:
+    - role: ../roles/ansible_test
