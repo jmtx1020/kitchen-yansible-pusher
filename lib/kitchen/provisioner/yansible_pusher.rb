@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'kitchen/provisioner/base'
+require 'kitchen/errors'
 require_relative '../yansible/pusher/version'
 require 'yaml'
 
@@ -72,6 +73,7 @@ module Kitchen
         command = build_ansible_command
         info("Running Ansible Command: #{command}")
         system(command)
+        raise Kitchen::ActionFailed, 'Ansible playbook execution failed' unless $?.success?
       end
 
       def create_inventory
