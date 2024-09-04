@@ -2,39 +2,11 @@
 
 ## [Unreleased](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/HEAD)
 
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test6...HEAD)
+[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.2.0...HEAD)
 
 **Merged pull requests:**
 
 - added CHANGELOG update action [\#11](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/11) ([jmtx1020](https://github.com/jmtx1020))
-
-## [v0.1.4_test6](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test6) (2024-08-31)
-
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test5...v0.1.4_test6)
-
-## [v0.1.4_test5](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test5) (2024-08-31)
-
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test4...v0.1.4_test5)
-
-## [v0.1.4_test4](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test4) (2024-08-31)
-
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test3...v0.1.4_test4)
-
-## [v0.1.4_test3](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test3) (2024-08-31)
-
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test2...v0.1.4_test3)
-
-## [v0.1.4_test2](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test2) (2024-08-31)
-
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test1...v0.1.4_test2)
-
-## [v0.1.4_test1](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test1) (2024-08-31)
-
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.1.4_test...v0.1.4_test1)
-
-## [v0.1.4_test](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.1.4_test) (2024-08-31)
-
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.2.0...v0.1.4_test)
 
 ## [v0.2.0](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.2.0) (2024-08-31)
 
