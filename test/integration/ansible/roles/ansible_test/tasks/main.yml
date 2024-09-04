@@ -1,29 +1,81 @@
 ---
 # tasks file for ansible_test
 
-- name: Install apache httpd  (state=present is optional)
+- name: Install apache httpd  (state=present is optional) (Linux)
   ansible.builtin.apt:
     name: apache2
     state: present
+  when: ansible_os_family != 'Windows'
 
-- name: A Tag to Run
+- name: A Tag to Run (Linux)
   ansible.builtin.apt:
     name: vim
     state: present
+  when: ansible_os_family != 'Windows'
   tags:
     - tag1
 
-- name: Another Tag to Run
+- name: Another Tag to Run (Linux)
   ansible.builtin.apt:
     name: dnsutils
     state: present
+  when: ansible_os_family != 'Windows'
   tags:
     - tag2
 
 
-- name: A Tag to Skip
+- name: A Tag to Skip (Linux)
   ansible.builtin.apt:
     name: curl
     state: present
+  when: ansible_os_family != 'Windows'
   tags:
     - skip_tag1
+
+- name: Ensure a directory exists (Windows)
+  win_file:
+    path: C:\
+    state: directory
+  when: ansible_os_family == 'Windows'
+  tags:
+    - win_tag1
+
+- name: Ensure Chocolatey itself is installed, using community repo for the bootstrap
+  win_chocolatey:
+    name: chocolatey
+  when: ansible_os_family == 'Windows'
+  tags:
+    - always
+
+- name: Install git (Windows)
+  win_chocolatey:
+    name: git
+    state: present
+  when: ansible_os_family == 'Windows'
+  tags:
+    - always
+
+- name: Install Ruby (Windows)
+  win_chocolatey:
+    name: ruby
+    state: present
+    version: 3.3.4.1
+  when: ansible_os_family == 'Windows'
+  tags:
+    - always
+
+- name: A Tag to Run (Windows)
+  win_file:
+    path: C:\
+    state: directory
+  when: ansible_os_family == 'Windows'
+  tags:
+    - win_tag1
+
+- name: A Tag to Skip (Windows)
+  win_file:
+    path: C:\
+    state: directory
+  when: ansible_os_family == 'Windows'
+  tags:
+    - win_skip_tag1
