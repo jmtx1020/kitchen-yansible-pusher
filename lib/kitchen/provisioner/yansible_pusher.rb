@@ -108,6 +108,16 @@ module Kitchen
 
       def build_windows_config(state)
         uri = URI(state[:endpoint])
+        defaults = default_windows_config(state, uri)
+        user_windows_config(defaults)
+      end
+
+      def user_windows_config(defaults)
+        user_config = (config[:winrm_config] || {}).transform_keys { |key| "ansible_#{key}" }
+        defaults.merge(user_config.compact)
+      end
+
+      def default_windows_config(state, uri)
         { 'ansible_host' => uri.host,
           'ansible_port' => state[:port] || uri.port,
           'ansible_user' => state[:user],
