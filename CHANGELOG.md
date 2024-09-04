@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- added chocolatey to reqs [\#13](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/13) ([jmtx1020](https://github.com/jmtx1020))
 - add winrm support [\#12](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/12) ([jmtx1020](https://github.com/jmtx1020))
 - added CHANGELOG update action [\#11](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/11) ([jmtx1020](https://github.com/jmtx1020))
 
