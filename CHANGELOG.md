@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- add winrm support [\#12](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/12) ([jmtx1020](https://github.com/jmtx1020))
 - added CHANGELOG update action [\#11](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/11) ([jmtx1020](https://github.com/jmtx1020))
 
 ## [v0.2.0](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.2.0) (2024-08-31)
