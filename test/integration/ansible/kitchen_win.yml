@@ -1,8 +1,6 @@
 ---
 driver:
   name: vagrant
-  customize:
-    memory: 1024
 platforms:
   - name: windows-2022
     driver:

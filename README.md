@@ -68,6 +68,46 @@ suites:
 
 ```
 
+### Usage on Windows - Requirements
+
+To use this gem and with a Windows target you need to install [PyWinRM](https://pypi.org/project/pywinrm/) as it is not part of the standard Ansible core distributed when you install through any methods.
+
+```
+pip install pywinrm
+```
+
+This error is known to occur when using the WinRM gem on Mac OS hosts due to the way Python forking works.
+
+```
+objc[78682]: +[__NSCFConstantString initialize] may have been in progress in another thread when fork() was called. We cannot safely call it or ignore it in the fork() child process. Crashing instead. Set a breakpoint on objc_initializeAfterForkError to debug.
+```
+
+The solution is to run this command and then you should be able to run your role successfully.
+
+```
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+```
+
+### Windows Usage - Configuration
+
+This provisoner infers the settings needed to connect to the box using the connection data from the instance, however if you need to overwrite any of these settings they are overwritable by specifying these values.
+
+```yaml
+provisioner:
+  name: yansible_pusher
+  winrm:
+    host: ""
+    port: 1234
+    user: username1
+    password: SuperSecurePassword!
+    connection: 'winrm'
+    server_cert_validation: 'ignore'
+    transport: 'ssl'
+    scheme: 'http'
+```
+
+More information about these settings can be found [here](https://docs.ansible.com/ansible/latest/os_guide/windows_winrm.html).
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jmtx1020/kitchen-yansible-pusher.
