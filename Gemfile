@@ -13,3 +13,5 @@ group :development do
   gem "rspec", "~> 3.0"
   gem 'rbs', '~> 3.5', '>= 3.5.3'
 end
+
+gem 'english', '~> 0.8.0'

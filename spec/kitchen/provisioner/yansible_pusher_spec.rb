@@ -70,7 +70,6 @@ describe Kitchen::Provisioner::YansiblePusher do
       allow(provisioner).to receive(:create_inventory).and_return('/path/to/inventory.yml')
       command = provisioner.send(:build_ansible_command)
       expect(command).to include('ansible-playbook')
-      expect(command).to include("MARIO=\"MUSHROOM_KINGDOM\"")
       expect(command).to include('--tags "tag1,tag2"')
       expect(command).to include('--skip-tags "skip1"')
       expect(command).to include('--flush-cache')

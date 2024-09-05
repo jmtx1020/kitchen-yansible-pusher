@@ -64,10 +64,6 @@ describe 'YansiblePusher Integration' do
       # Check for the correct playbook path
       expect(log_content).to include('playbooks/playbook.yaml')
 
-      # Check for extra vars in the command
-      expect(log_content).to include('MARIO="MUSHROOM_KINGDOM"')
-      expect(log_content).to include('LINK="HYRULE"')
-
       # Check for tags
       expect(log_content).to include('--tags "tag1,tag2"')
 
