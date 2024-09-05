@@ -68,6 +68,8 @@
 - additional-ruby-versions [\#2](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/2) ([jmtx1020](https://github.com/jmtx1020))
 - added github actions release pipeline [\#1](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/1) ([jmtx1020](https://github.com/jmtx1020))
 
+
+
 ## [v0.0.1pre](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.0.1pre) (2024-08-30)
 
 [Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/1bf46ae6cbbff66f85fd2d3857271c44af727b56...v0.0.1pre)
