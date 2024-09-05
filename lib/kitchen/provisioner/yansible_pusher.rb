@@ -4,6 +4,7 @@ require 'kitchen/provisioner/base'
 require 'kitchen/errors'
 require_relative '../yansible/pusher/version'
 require 'yaml'
+require 'English'
 
 module Kitchen
   module Provisioner
@@ -72,8 +73,8 @@ module Kitchen
       def run_ansible
         command = build_ansible_command
         info("Running Ansible Command: #{command}")
-        system(command)
-        raise Kitchen::ActionFailed, 'Ansible playbook execution failed' unless $?.success?
+        system(ansible_env_vars, command)
+        raise Kitchen::ActionFailed, 'Ansible playbook execution failed' unless $CHILD_STATUS.success?
       end
 
       def create_inventory
@@ -146,8 +147,6 @@ module Kitchen
 
       def ansible_options
         %i[
-          ansible_config
-          ansible_env_vars
           ansible_use_private_key
           ansible_use_vault_password_file
           ansible_extra_flags
@@ -157,14 +156,13 @@ module Kitchen
         ]
       end
 
-      def ansible_config(cmd)
-        cmd.prepend("ANSIBLE_CONFIG=#{config[:config]}") if config[:config]
-        cmd
-      end
-
-      def ansible_env_vars(cmd)
-        config[:env_vars]&.each { |k, v| cmd.prepend("#{k}=\"#{v}\"") }
-        cmd
+      def ansible_env_vars
+        env = ENV.to_h.dup
+        config[:env_vars]&.each do |key, value|
+          env[key.to_s] = value.to_s unless value.nil?
+        end
+        env['ANSIBLE_CONFIG'] = config[:config] unless config[:config].nil?
+        env
       end
 
       def ansible_extra_flags(cmd)
