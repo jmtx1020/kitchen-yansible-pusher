@@ -33,7 +33,7 @@ module Kitchen
       default_config :extra_flags, []
       default_config :tags, []
       default_config :skip_tags, []
-      default_config :verbosity, 1
+      default_config :verbosity, 0
       default_config :vault_password_file, nil
       default_config :username, nil
       default_config :private_key, nil
