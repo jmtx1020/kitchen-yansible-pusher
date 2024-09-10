@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/HEAD)
+## [v0.3.3](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.3.3) (2024-09-10)
 
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.2...HEAD)
+[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.2...v0.3.3)
 
 **Merged pull requests:**
 
@@ -69,7 +69,6 @@
 [Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.0.1pre...v0.1.0)
 
 **Merged pull requests:**
-
 
 - added allowed host push urls [\#5](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/5) ([jmtx1020](https://github.com/jmtx1020))
 - added better names, and release pipeline to rubygems [\#4](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/4) ([jmtx1020](https://github.com/jmtx1020))
