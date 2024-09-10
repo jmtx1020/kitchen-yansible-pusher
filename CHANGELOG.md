@@ -70,6 +70,7 @@
 
 **Merged pull requests:**
 
+
 - added allowed host push urls [\#5](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/5) ([jmtx1020](https://github.com/jmtx1020))
 - added better names, and release pipeline to rubygems [\#4](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/4) ([jmtx1020](https://github.com/jmtx1020))
 - Added Integration Tests [\#3](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/3) ([jmtx1020](https://github.com/jmtx1020))
