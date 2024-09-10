@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/HEAD)
+
+[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.2...HEAD)
+
+**Merged pull requests:**
+
+- update: set default verbosity level to 0 [\#16](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/16) ([jmtx1020](https://github.com/jmtx1020))
+
 ## [v0.3.2](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.3.2) (2024-09-05)
 
 [Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.1...v0.3.2)
