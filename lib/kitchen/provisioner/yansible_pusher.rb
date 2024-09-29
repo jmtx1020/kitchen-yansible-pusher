@@ -5,6 +5,7 @@ require 'kitchen/errors'
 require_relative '../yansible/pusher/version'
 require 'yaml'
 require 'English'
+require 'mixlib/shellout'
 
 module Kitchen
   module Provisioner
@@ -73,8 +74,9 @@ module Kitchen
       def run_ansible
         command = build_ansible_command
         info("Running Ansible Command: #{command}")
-        system(ansible_env_vars, command)
-        raise Kitchen::ActionFailed, 'Ansible playbook execution failed' unless $CHILD_STATUS.success?
+        cmd = Mixlib::ShellOut.new(command, :environment => ansible_env_vars(), :live_stream => logger)
+        cmd.run_command
+        raise Kitchen::ActionFailed, 'Ansible playbook execution failed' unless cmd.exitstatus == 0
       end
 
       def create_inventory

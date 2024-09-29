@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kitchen-yansible-pusher (0.3.3)
+    kitchen-yansible-pusher (0.3.4)
 
 GEM
   remote: https://rubygems.org/
@@ -67,7 +67,7 @@ GEM
       rspec-mocks (~> 3.13.0)
     rspec-core (3.13.1)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.2)
+    rspec-expectations (3.13.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-mocks (3.13.1)
@@ -112,7 +112,7 @@ GEM
       tty-screen (~> 0.8)
       wisper (~> 2.0)
     tty-screen (0.8.2)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
     unicode_utils (1.4.0)
     winrm (2.3.9)
       builder (>= 2.1.2)
@@ -144,6 +144,7 @@ DEPENDENCIES
   kitchen-docker (~> 3.0)
   kitchen-vagrant (~> 2.0, >= 2.0.1)
   kitchen-yansible-pusher!
+  mixlib-shellout (~> 3.2, >= 3.2.8)
   rake (~> 13.0)
   rbs (~> 3.5, >= 3.5.3)
   rspec (~> 3.0)
