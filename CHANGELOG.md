@@ -1,10 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/HEAD)
+## [v0.3.4](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.3.4) (2024-09-29)
 
-[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.3...HEAD)
-
-
+[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.3...v0.3.4)
 
 **Merged pull requests:**
 
