@@ -4,6 +4,8 @@
 
 [Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.3...HEAD)
 
+
+
 **Merged pull requests:**
 
 - fixed issue where Ansibles output was not being preserved in kitchen logs [\#17](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/17) ([jmtx1020](https://github.com/jmtx1020))
