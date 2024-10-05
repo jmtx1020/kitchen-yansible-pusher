@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/HEAD)
+
+[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.4...HEAD)
+
+**Merged pull requests:**
+
+- updated to use Open3 to run instead of mixlib::shellout [\#18](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/18) ([jmtx1020](https://github.com/jmtx1020))
+
 ## [v0.3.4](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.3.4) (2024-09-29)
 
 [Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.3...v0.3.4)
