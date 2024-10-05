@@ -5,7 +5,7 @@ require 'kitchen/errors'
 require_relative '../yansible/pusher/version'
 require 'yaml'
 require 'English'
-require 'mixlib/shellout'
+require 'open3'
 
 module Kitchen
   module Provisioner
@@ -58,11 +58,9 @@ module Kitchen
       end
 
       def run_command
-        info("Running Ansible Playbook: #{config[:playbook]}")
         begin
           create_sandbox
           run_ansible
-          info('Ansible Playbook Complete!')
         ensure
           cleanup_sandbox
         end
@@ -73,10 +71,44 @@ module Kitchen
 
       def run_ansible
         command = build_ansible_command
-        info("Running Ansible Command: #{command}")
-        cmd = Mixlib::ShellOut.new(command, :environment => ansible_env_vars(), :live_stream => logger)
-        cmd.run_command
-        raise Kitchen::ActionFailed, 'Ansible playbook execution failed' unless cmd.exitstatus == 0
+        log_file = ".kitchen/logs/#{instance.name}.log"
+        FileUtils.mkdir_p(File.dirname(log_file))
+        execute_ansible_command(command, log_file)
+      end
+
+      def execute_ansible_command(command, log_file)
+        File.open(log_file, 'w') do |file|
+          log_ansible_init(command, file)
+          execute_and_capture_ansible_output(command, file)
+          log_line('Ansible Playbook Complete!', file)
+        end
+      end
+
+      def log_ansible_init(command, file)
+        log_line("Running Ansible Playbook: #{config[:playbook]}", file)
+        log_line("Running Ansible Command: #{command}", file)
+      end
+
+      def execute_and_capture_ansible_output(command, file)
+        Open3.popen2e(ansible_env_vars, command) do |_stdin, stdout_and_stderr, wait_thr|
+          stdout_and_stderr.each do |line|
+            log_line(line, file)
+          end
+          check_execution_status(wait_thr)
+        end
+      end
+
+      def log_line(line, file)
+        line = line.chomp
+        info(line)
+        file.puts(line)
+        file.flush
+      end
+
+      def check_execution_status(wait_thr)
+        return if wait_thr.value.success?
+
+        raise Kitchen::ActionFailed, 'Ansible playbook execution failed'
       end
 
       def create_inventory

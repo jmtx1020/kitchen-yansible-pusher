@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kitchen-yansible-pusher (0.3.4)
+    kitchen-yansible-pusher (0.4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -50,7 +50,7 @@ GEM
     multi_json (1.15.0)
     net-scp (4.0.0)
       net-ssh (>= 2.6.5, < 8.0.0)
-    net-ssh (7.2.3)
+    net-ssh (7.3.0)
     net-ssh-gateway (2.0.0)
       net-ssh (>= 4.0.0)
     nori (2.7.1)
@@ -58,9 +58,9 @@ GEM
     pastel (0.8.0)
       tty-color (~> 0.5)
     rake (13.2.1)
-    rbs (3.5.3)
+    rbs (3.6.1)
       logger
-    rexml (3.3.7)
+    rexml (3.3.8)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -70,7 +70,7 @@ GEM
     rspec-expectations (3.13.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.1)
+    rspec-mocks (3.13.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.1)
@@ -144,7 +144,6 @@ DEPENDENCIES
   kitchen-docker (~> 3.0)
   kitchen-vagrant (~> 2.0, >= 2.0.1)
   kitchen-yansible-pusher!
-  mixlib-shellout (~> 3.2, >= 3.2.8)
   rake (~> 13.0)
   rbs (~> 3.5, >= 3.5.3)
   rspec (~> 3.0)

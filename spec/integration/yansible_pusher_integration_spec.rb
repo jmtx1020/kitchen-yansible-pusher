@@ -57,9 +57,8 @@ describe 'YansiblePusher Integration' do
       # Read the log file
       log_content = File.read(log_file)
 
-      # Perform checks on the log content
-      expect(log_content).to include('Running Ansible Playbook')
-      expect(log_content).to include('Ansible Playbook Complete!')
+      # Verify that output indicates no failures
+      expect(log_content).to include('failed=0')
 
       # Check for the correct playbook path
       expect(log_content).to include('playbooks/playbook.yaml')
