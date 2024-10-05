@@ -15,4 +15,3 @@ group :development do
 end
 
 gem 'english', '~> 0.8.0'
-gem 'mixlib-shellout', '~> 3.2', '>= 3.2.8'
