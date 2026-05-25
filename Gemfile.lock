@@ -8,6 +8,7 @@ GEM
   specs:
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.2)
+    benchmark (0.5.0)
     bigdecimal (4.1.2)
     builder (3.3.0)
     chef-utils (19.3.15)
@@ -173,6 +174,7 @@ PLATFORMS
   x86_64-darwin-23
 
 DEPENDENCIES
+  benchmark (~> 0.5.0)
   english (~> 0.8.0)
   kitchen-docker (~> 3.0)
   kitchen-vagrant (~> 2.0, >= 2.0.1)

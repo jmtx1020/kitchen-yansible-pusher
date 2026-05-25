@@ -6,6 +6,7 @@ source "https://rubygems.org"
 gemspec
 
 group :development do
+  gem 'benchmark', '~> 0.5.0'
   gem 'test-kitchen', '~> 3.7'
   gem 'kitchen-vagrant', '~> 2.0', '>= 2.0.1'
   gem 'kitchen-docker', '~> 3.0'
