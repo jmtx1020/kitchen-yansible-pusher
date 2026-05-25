@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/HEAD)
+
+[Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.4.0...HEAD)
+
+**Merged pull requests:**
+
+- upgrade deps may 25 2026 [\#20](https://github.com/jmtx1020/kitchen-yansible-pusher/pull/20) ([jmtx1020](https://github.com/jmtx1020))
+
 ## [v0.4.0](https://github.com/jmtx1020/kitchen-yansible-pusher/tree/v0.4.0) (2024-10-05)
 
 [Full Changelog](https://github.com/jmtx1020/kitchen-yansible-pusher/compare/v0.3.4...v0.4.0)
